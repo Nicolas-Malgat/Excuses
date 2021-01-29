@@ -43,6 +43,7 @@ def split(filehandler, delimiter=',', row_limit=10000,
         current_out_writer.writerow(headers)
     for i, row in enumerate(reader):
         if i + 1 > current_limit:
+            print("created " + (output_name_template % current_piece) )
             current_piece += 1
             current_limit = row_limit * current_piece
             current_out_path = os.path.join(
